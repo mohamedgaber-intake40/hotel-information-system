@@ -14,7 +14,7 @@ class SuccessApiResponseBuilder extends BaseApiResponseBuilder
     public function __construct()
     {
         $this->data       = [];
-        $this->message    = __('response.global.success_message');
+        $this->message    = __('global.response.success_message');
         $this->statusCode = Response::HTTP_OK;
     }
 

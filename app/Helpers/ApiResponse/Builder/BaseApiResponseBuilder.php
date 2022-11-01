@@ -35,7 +35,7 @@ abstract class BaseApiResponseBuilder
 
     public function send()
     {
-        return response()->json($this->responseData(),$this->statusCode);
+        return response()->json($this->responseData(),$this->statusCode)->send();
     }
 
 

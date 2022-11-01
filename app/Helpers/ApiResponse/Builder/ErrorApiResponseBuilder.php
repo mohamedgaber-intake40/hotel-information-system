@@ -13,7 +13,7 @@ class ErrorApiResponseBuilder extends BaseApiResponseBuilder
     public function __construct()
     {
         $this->errors     = [];
-        $this->message    = __('response.global.error_message');
+        $this->message    = __('global.response.error_message');
         $this->statusCode = Response::HTTP_BAD_REQUEST;
     }
 
