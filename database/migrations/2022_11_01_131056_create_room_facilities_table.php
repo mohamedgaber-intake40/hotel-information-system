@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Facility;
+use App\Models\Room;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateRoomFacilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +15,10 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('room_facilities', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->foreignIdFor(Room::class)->constrained();
+            $table->foreignIdFor(Facility::class)->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('room_facilities');
     }
 }
