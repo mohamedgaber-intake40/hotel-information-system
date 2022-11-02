@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24dab5ca4362041db2322cee5cca74d6",
+    "content-hash": "651c1231adc9f4c1820421294fdb1b8c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1668,6 +1668,55 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "mohamedgaber-intake40/filter-quent",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohamedgaber-intake40/filter-quent.git",
+                "reference": "76c63164f02708f71211f7e6cbc9e1ec9f46cfdb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohamedgaber-intake40/filter-quent/zipball/76c63164f02708f71211f7e6cbc9e1ec9f46cfdb",
+                "reference": "76c63164f02708f71211f7e6cbc9e1ec9f46cfdb",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Filter\\Providers\\FilterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Filter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Gaber",
+                    "email": "gaberm514@gmail.com"
+                },
+                {
+                    "name": "Osama Eltayar",
+                    "email": "osamaeltiar@yahoo.com"
+                }
+            ],
+            "description": "An easy way to filter Queries Laravel Eloquent.",
+            "homepage": "https://github.com/mohamedgaber-intake40/filter-quent",
+            "support": {
+                "issues": "https://github.com/mohamedgaber-intake40/filter-quent/issues",
+                "source": "https://github.com/mohamedgaber-intake40/filter-quent/tree/v2.0.1"
+            },
+            "time": "2022-01-10T19:16:38+00:00"
         },
         {
             "name": "mohamedgaber-intake40/sanctum-refresh-token",

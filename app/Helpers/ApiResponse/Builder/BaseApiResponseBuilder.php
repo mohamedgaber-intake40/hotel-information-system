@@ -6,9 +6,6 @@ namespace App\Helpers\ApiResponse\Builder;
 
 abstract class BaseApiResponseBuilder
 {
-//    public function asa(){
-//        responseBuilder()->success()->data()->message()->statusCode();
-//    }
 
     protected $message;
     protected $statusCode;
@@ -29,7 +26,7 @@ abstract class BaseApiResponseBuilder
     protected function responseData()
     {
         return [
-            'message'    => $this->message,
+            'message' => $this->message,
         ];
     }
 

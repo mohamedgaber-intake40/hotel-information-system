@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\City;
 
+use App\Http\Requests\BaseApiRequest;
+use App\Http\Requests\BaseIndexApiRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends BaseApiRequest
+class CityIndexRequest extends BaseIndexApiRequest
 {
-    const MAX_EMAIL_LENGTH    = 100;
-    const MAX_PASSWORD_LENGTH = 50;
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,9 +25,6 @@ class LoginRequest extends BaseApiRequest
      */
     public function rules()
     {
-        return [
-            'email'    => [ 'required', 'email', 'max:' . self::MAX_EMAIL_LENGTH ],
-            'password' => [ 'required', 'string', 'max:' . self::MAX_PASSWORD_LENGTH ],
-        ];
+        return parent::rules();
     }
 }
