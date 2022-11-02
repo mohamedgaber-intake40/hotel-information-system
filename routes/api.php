@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\FacilityController;
 use App\Http\Controllers\Api\HotelController;
+use App\Http\Controllers\Api\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +30,5 @@ Route::group([ 'middleware' => [ 'auth:sanctum' ] ], function () {
     Route::get('countries', CountryController::class)->name('countries.index');
     Route::get('facilities', FacilityController::class)->name('facilities.index');
     Route::apiResource('hotels', HotelController::class)->only('index','store');
+    Route::apiResource('hotels.rooms', RoomController::class)->only('index','store')->where(['hotel'=>'[0-9]*']);
 });

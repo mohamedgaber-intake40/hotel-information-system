@@ -12,6 +12,11 @@ class FetchHotelListService
 
     public function execute($perPage = self::PER_PAGE)
     {
-        return Hotel::query()->paginate($perPage);
+        return Hotel::query()
+                    ->with([
+                               'city:id,name,country_id',
+                               'city.country:id,name,iso_code',
+                           ])
+                    ->paginate($perPage);
     }
 }
