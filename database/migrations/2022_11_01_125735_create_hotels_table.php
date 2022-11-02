@@ -19,7 +19,6 @@ class CreateHotelsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->foreignIdFor(City::class)->constrained();
-            $table->unsignedFloat('price_per_night');
             $table->timestamps();
         });
     }

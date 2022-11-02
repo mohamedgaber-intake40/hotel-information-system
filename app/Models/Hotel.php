@@ -17,7 +17,6 @@ class Hotel extends Model
     protected $fillable = [
         'name',
         'city_id',
-        'price_per_night'
     ];
     /*
      |--------------------------------------------------------------------------|

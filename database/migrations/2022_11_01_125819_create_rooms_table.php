@@ -17,6 +17,7 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('number')->unique();
+            $table->unsignedFloat('price_per_night');
             $table->foreignIdFor(Hotel::class)->constrained();
             $table->timestamps();
         });

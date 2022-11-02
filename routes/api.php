@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\Auth\RefreshTokenController;
 use App\Http\Controllers\Api\CityController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\FacilityController;
+use App\Http\Controllers\Api\HotelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,5 @@ Route::group([ 'middleware' => [ 'auth:sanctum' ] ], function () {
     Route::get('cities', CityController::class)->name('cities.index');
     Route::get('countries', CountryController::class)->name('countries.index');
     Route::get('facilities', FacilityController::class)->name('facilities.index');
+    Route::apiResource('hotels', HotelController::class)->only('index','store');
 });
