@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c61ff82cbf0142a401a48a8161e1595a",
+    "content-hash": "24dab5ca4362041db2322cee5cca74d6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1668,6 +1668,53 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "mohamedgaber-intake40/sanctum-refresh-token",
+            "version": "v1.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mohamedgaber-intake40/sanctum-refresh-token.git",
+                "reference": "59d98c4488cf89bb62c2e04039ac9c3282320d31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mohamedgaber-intake40/sanctum-refresh-token/zipball/59d98c4488cf89bb62c2e04039ac9c3282320d31",
+                "reference": "59d98c4488cf89bb62c2e04039ac9c3282320d31",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/sanctum": "^2.11"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MohamedGaber\\SanctumRefreshToken\\SanctumRefreshTokenServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MohamedGaber\\SanctumRefreshToken\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohamed Gaber",
+                    "email": "mohamed.gaberiti40@gmail.com"
+                }
+            ],
+            "description": "add refresh token feature to laravel sanctum official package",
+            "support": {
+                "issues": "https://github.com/mohamedgaber-intake40/sanctum-refresh-token/issues",
+                "source": "https://github.com/mohamedgaber-intake40/sanctum-refresh-token/tree/v1.24"
+            },
+            "time": "2022-03-27T11:11:11+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7708,7 +7755,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.4|^8.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
