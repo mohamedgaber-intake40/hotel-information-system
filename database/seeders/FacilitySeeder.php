@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Facility;
+use App\Models\Room;
 use Illuminate\Database\Seeder;
 
 class FacilitySeeder extends Seeder
@@ -14,6 +15,8 @@ class FacilitySeeder extends Seeder
      */
     public function run()
     {
-        Facility::factory()->count(20)->create();
+        Facility::factory()->count(20)->create()->each(function ($facility){
+            $facility->rooms()->attach(Room::query()->inRandomOrder()->take(50)->pluck('id'));
+        });
     }
 }

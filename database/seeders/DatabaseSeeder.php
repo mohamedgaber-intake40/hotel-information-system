@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Hotel;
+use App\Models\Room;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
