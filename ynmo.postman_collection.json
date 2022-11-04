@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "c72fca34-911d-4094-92ad-79ab7da67e8b",
+		"name": "ynmo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12667810"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"auth_token\",pm.response.json().data.auth_token.token)",
+									"pm.environment.set(\"user_id\",pm.response.json().data.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"test@test.com\",\n    \"password\" : \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "qGuUVlV95QPy1y3U2B5jEIUrmp0skANYJ00sTedl",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"test@test.com\",\n    \"password\" : \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/refresh-token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/cities?country=2&per_page=1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "2"
+								},
+								{
+									"key": "per_page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/countries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"countries"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Facility",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "mcsFzhd7pbe5VstB8eXxaPiBDiwdLbfH0Dsp7hUZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/facilities",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"facilities"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" :\"qweqwe\",\n    \"city_id\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/hotels",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hotels",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"number\" :19144,\n    \"price_per_night\" :6,\n    \"facilities\" :[1,2,3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/hotels/:hotel/rooms",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels",
+								":hotel",
+								"rooms"
+							],
+							"variable": [
+								{
+									"key": "hotel",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hotels/:hotel/rooms",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels",
+								":hotel",
+								"rooms"
+							],
+							"variable": [
+								{
+									"key": "hotel",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reservations?sort_direction=desc&sort_by=city",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reservations"
+							],
+							"query": [
+								{
+									"key": "city_id",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "hotel_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "Lake Nova",
+									"disabled": true
+								},
+								{
+									"key": "sort_direction",
+									"value": "desc"
+								},
+								{
+									"key": "sort_by",
+									"value": "city"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.addHeader(\"Accept: Application/json\")",
+					"",
+					"pm.request.addHeader(\"Authorization: Bearer \" + pm.environment.get('auth_token'))",
+					"",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
