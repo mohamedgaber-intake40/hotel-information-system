@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Helpers\ApiResponse\Builder;
+namespace App\Utilities\ApiResponse\Builder;
 
 
 abstract class BaseApiResponseBuilder

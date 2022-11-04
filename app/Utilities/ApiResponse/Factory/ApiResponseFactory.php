@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Helpers\ApiResponse\Factory;
+namespace App\Utilities\ApiResponse\Factory;
 
 
 
-use App\Helpers\ApiResponse\Builder\ErrorApiResponseBuilder;
-use App\Helpers\ApiResponse\Builder\SuccessApiResponseBuilder;
+use App\Utilities\ApiResponse\Builder\ErrorApiResponseBuilder;
+use App\Utilities\ApiResponse\Builder\SuccessApiResponseBuilder;
 
 class ApiResponseFactory
 {

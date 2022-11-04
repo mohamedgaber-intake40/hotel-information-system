@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Helpers\ApiResponse\Factory\ApiResponseFactory;
+use App\Utilities\ApiResponse\Factory\ApiResponseFactory;
 
 function apiResponse()
 {
