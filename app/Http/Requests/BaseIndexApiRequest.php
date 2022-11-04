@@ -14,7 +14,8 @@ class BaseIndexApiRequest extends BaseApiRequest
     public function rules()
     {
         return [
-            'per_page' => [ 'sometimes', 'integer', 'min:1', 'max:50' ]
+            'per_page'       => [ 'sometimes', 'integer', 'min:1', 'max:50' ],
+            'sort_direction' => [ 'sometimes', 'in:asc,desc' ]
         ];
     }
 }
