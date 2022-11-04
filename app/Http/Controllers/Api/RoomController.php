@@ -7,7 +7,9 @@ use App\Http\Requests\RoomIndexRequest;
 use App\Http\Requests\RoomStoreRequest;
 use App\Http\Resources\RoomResource;
 use App\Models\Hotel;
+use App\Models\Room;
 use App\Services\Api\Room\FetchRoomListService;
+use App\Services\Api\Room\FetchSingleRoomService;
 use App\Services\Api\Room\StoreRoomService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,6 +36,15 @@ class RoomController extends Controller
                             ))
                             ->message(__('rooms.stored.success'))
                             ->statusCode(Response::HTTP_CREATED)
+                            ->send();
+    }
+
+    public function show(Hotel $hotel,$room,FetchSingleRoomService $fetchSingleRoomService)
+    {
+        return apiResponse()->success()
+                            ->data(RoomResource::make(
+                                $fetchSingleRoomService->execute($hotel,$room)
+                            ))
                             ->send();
     }
 }

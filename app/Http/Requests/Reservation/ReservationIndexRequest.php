@@ -48,7 +48,8 @@ class ReservationIndexRequest extends BaseIndexApiRequest
     {
         if ( $validator->fails() || !$this->has('sort_by') ) return;
         $this->merge([
-                         'sort_by' => static::getSortColumn($this->sort_by)
+                         'sort_by' => static::getSortColumn($this->sort_by),
+                         'sort_direction' => $this->sort_direction ?: 'asc'
                      ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Room;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class HotelResource extends JsonResource
@@ -17,7 +18,8 @@ class HotelResource extends JsonResource
         return [
             'id'   => $this->id,
             'name' => $this->name,
-            'city' => CityResource::make($this->whenLoaded('city'))
+            'city' => CityResource::make($this->whenLoaded('city')),
+            'rooms' => RoomResource::collection($this->whenLoaded('rooms'))
         ];
     }
 }

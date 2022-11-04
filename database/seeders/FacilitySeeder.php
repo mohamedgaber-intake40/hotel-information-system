@@ -16,7 +16,7 @@ class FacilitySeeder extends Seeder
     public function run()
     {
         Facility::factory()->count(20)->create()->each(function ($facility){
-            $facility->rooms()->attach(Room::query()->inRandomOrder()->take(50)->pluck('id'));
+            $facility->rooms()->attach(Room::query()->inRandomOrder()->take(200)->pluck('id'));
         });
     }
 }

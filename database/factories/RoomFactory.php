@@ -15,7 +15,7 @@ class RoomFactory extends Factory
     {
         return [
             'number' => $this->faker->unique()->randomNumber(5),
-            'price_per_night' => "10.5",
+            'price_per_night' => $this->faker->randomFloat(2,10,1000),
         ];
     }
 }

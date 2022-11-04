@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Filters\ReservationFilter;
+use Filter\Traits\HasFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Hotel extends Model
 {
     use HasFactory;
+    use HasFilter;
 
     /*
    |--------------------------------------------------------------------------|
@@ -63,5 +66,10 @@ class Hotel extends Model
     public function rooms()
     {
         return $this->hasMany(Room::class);
+    }
+
+    protected function getFilterClassName()
+    {
+        return ReservationFilter::class;
     }
 }
