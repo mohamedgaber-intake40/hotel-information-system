@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\HotelIndexRequest;
 use App\Http\Requests\HotelStoreRequest;
 use App\Http\Resources\HotelResource;
-use App\Services\Api\Hotel\FetchHotelListService;
-use App\Services\Api\Hotel\StoreHotelService;
+use App\Services\Hotel\FetchHotelListService;
+use App\Services\Hotel\StoreHotelService;
 use Symfony\Component\HttpFoundation\Response;
 
 class HotelController extends Controller

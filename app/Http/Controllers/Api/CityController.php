@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\City\CityIndexRequest;
 use App\Http\Resources\CityResource;
-use App\Services\Api\City\FetchCityListService;
+use App\Services\City\FetchCityListService;
 
 class CityController extends Controller
 {

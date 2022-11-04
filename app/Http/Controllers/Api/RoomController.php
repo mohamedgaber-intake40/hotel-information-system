@@ -8,9 +8,9 @@ use App\Http\Requests\RoomStoreRequest;
 use App\Http\Resources\RoomResource;
 use App\Models\Hotel;
 use App\Models\Room;
-use App\Services\Api\Room\FetchRoomListService;
-use App\Services\Api\Room\FetchSingleRoomService;
-use App\Services\Api\Room\StoreRoomService;
+use App\Services\Room\FetchRoomListService;
+use App\Services\Room\FetchSingleRoomService;
+use App\Services\Room\StoreRoomService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 

@@ -7,7 +7,7 @@ use App\Http\Requests\Reservation\ReservationIndexRequest;
 use App\Http\Resources\ReservationResource;
 use App\Models\Hotel;
 use App\Models\Room;
-use App\Services\Api\Reservation\FetchReservationListService;
+use App\Services\Reservation\FetchReservationListService;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller

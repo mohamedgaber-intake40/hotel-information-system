@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Api\Room;
+namespace App\Services\Room;
 
 
 class FetchSingleRoomService

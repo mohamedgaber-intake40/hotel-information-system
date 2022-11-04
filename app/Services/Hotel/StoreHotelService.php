@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Api\Hotel;
+namespace App\Services\Hotel;
 
 
 use App\Models\Hotel;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Api\Facility;
+namespace App\Services\Facility;
 
 
 use App\Models\Facility;

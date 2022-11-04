@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Api\Country;
+namespace App\Services\Country;
 
 
 use App\Models\Country;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Api\Reservation;
+namespace App\Services\Reservation;
 
 
 use App\Filters\ReservationFilter;

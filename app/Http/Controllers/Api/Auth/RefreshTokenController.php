@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TokenResource;
 use App\Http\Resources\UserResource;
-use App\Services\Api\Auth\RefreshTokenService;
+use App\Services\Auth\RefreshTokenService;
 
 class RefreshTokenController extends Controller
 {

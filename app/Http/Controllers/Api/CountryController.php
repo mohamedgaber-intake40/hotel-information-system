@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\City\CityIndexRequest;
 use App\Http\Resources\CityResource;
 use App\Http\Resources\CountryResource;
-use App\Services\Api\City\FetchCityListService;
-use App\Services\Api\Country\FetchCountryListService;
+use App\Services\City\FetchCityListService;
+use App\Services\Country\FetchCountryListService;
 
 class CountryController extends Controller
 {

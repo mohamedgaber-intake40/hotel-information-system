@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\Api\City;
+namespace App\Services\City;
 
 
 use App\Models\City;
