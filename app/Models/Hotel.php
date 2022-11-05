@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 class Hotel extends Model
 {
     use HasFactory;
-    use HasFilter;
 
     /*
    |--------------------------------------------------------------------------|
@@ -68,8 +67,5 @@ class Hotel extends Model
         return $this->hasMany(Room::class);
     }
 
-    protected function getFilterClassName()
-    {
-        return ReservationFilter::class;
-    }
+
 }

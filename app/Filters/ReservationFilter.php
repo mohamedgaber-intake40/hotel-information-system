@@ -14,7 +14,7 @@ class ReservationFilter extends Filter
             return $q->where('hotels.name','like',"%$search%")
                      ->orWhere('iso_code','like',"%$search%")
                      ->orWhere('cities.name','like',"%$search%")
-                     ->orWhere('price_per_night',"%$search%");
+                     ->orWhere('price_per_night',"$search");
         });
     }
 

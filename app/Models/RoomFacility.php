@@ -10,6 +10,8 @@ class RoomFacility extends Pivot
 {
     use HasFactory;
 
+    protected $table = 'room_facilities';
+
     /*
    |--------------------------------------------------------------------------|
    |                              Arrays                                      |

@@ -26,8 +26,8 @@ class RoomStoreRequest extends BaseApiRequest
         return [
             'number'          => [ 'required', 'integer', 'unique:rooms', 'min:1', 'max:99999' ],
             'price_per_night' => [ 'required', 'numeric', 'min:1', 'max:99999' ],
-            'facilities'      => [ 'required', 'array', 'filled', 'distinct' ],
-            'facilities.*'    => [ 'required', 'exists:facilities,id' ]
+            'facilities'      => [ 'required', 'array' ],
+            'facilities.*'    => [ 'required', 'exists:facilities,id','distinct' ]
         ];
     }
 }

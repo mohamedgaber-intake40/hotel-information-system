@@ -19,7 +19,7 @@ class ReservationController extends Controller
                 $request->only([ 'search', 'city_id', 'hotel_id', 'country_id' ]),
                 $request->sort_by,
                 $request->sort_direction,
-                $request->per_page
+                (int) $request->per_page
             )
         );
         return apiResponse()->success()
