@@ -79,9 +79,16 @@ class ReservationTest extends TestCase
     {
         $this->prepareData();
         $user = User::factory()->create();
-        $hotelName =  Hotel::first()->name;
-        $count = Room::query()->whereRelation('hotel','name',$hotelName)->count();
-        $response = $this->actingAs($user)->getJson(route('reservations.index',['search'=>$hotelName]));
+        $querySearchParam =  Hotel::first()->name;
+        $count = Room::query()
+                     ->where(function ($q) use ($querySearchParam) {
+                         $q->whereRelation('hotel.city.country','iso_code','like',"%$querySearchParam%")
+                           ->orwhereRelation('hotel','name','like',"%$querySearchParam%")
+                           ->orwhereRelation('hotel.city','name','like',"%$querySearchParam%")
+                           ->orWhere('price_per_night',"$querySearchParam");
+                     })
+                     ->count();
+        $response = $this->actingAs($user)->getJson(route('reservations.index', [ 'search' => $querySearchParam ]));
         $response->assertStatus(200);
         $response->assertJson(fn(AssertableJson $json) => $json->hasAll('data', 'links', 'meta', 'message')->where('meta.total' ,$count));
     }
@@ -90,9 +97,16 @@ class ReservationTest extends TestCase
     {
         $this->prepareData();
         $user = User::factory()->create();
-        $isoCountryCode =  Country::first()->iso_code;
-        $count = Room::query()->whereRelation('hotel.city.country','iso_code',$isoCountryCode)->count();
-        $response = $this->actingAs($user)->getJson(route('reservations.index',['search'=>$isoCountryCode]));
+        $querySearchParam =  Country::first()->iso_code;
+        $count = Room::query()
+                     ->where(function ($q) use ($querySearchParam) {
+                         $q->whereRelation('hotel.city.country','iso_code','like',"%$querySearchParam%")
+                           ->orwhereRelation('hotel','name','like',"%$querySearchParam%")
+                           ->orwhereRelation('hotel.city','name','like',"%$querySearchParam%")
+                           ->orWhere('price_per_night',"$querySearchParam");
+                     })
+                     ->count();
+        $response = $this->actingAs($user)->getJson(route('reservations.index',['search'=>$querySearchParam]));
         $response->assertStatus(200);
         $response->assertJson(fn(AssertableJson $json) => $json->hasAll('data', 'links', 'meta', 'message')->where('meta.total' ,$count));
     }
@@ -101,9 +115,16 @@ class ReservationTest extends TestCase
     {
         $this->prepareData();
         $user = User::factory()->create();
-        $cityName =  City::first()->name;
-        $count = Room::query()->whereRelation('hotel.city','name',$cityName)->count();
-        $response = $this->actingAs($user)->getJson(route('reservations.index',['search'=>$cityName]));
+        $querySearchParam =  City::first()->name;
+        $count = Room::query()
+                     ->where(function ($q) use ($querySearchParam) {
+                         $q->whereRelation('hotel.city.country','iso_code','like',"%$querySearchParam%")
+                           ->orwhereRelation('hotel','name','like',"%$querySearchParam%")
+                           ->orwhereRelation('hotel.city','name','like',"%$querySearchParam%")
+                           ->orWhere('price_per_night',"$querySearchParam");
+                     })
+                     ->count();
+        $response = $this->actingAs($user)->getJson(route('reservations.index',['search'=>$querySearchParam]));
         $response->assertStatus(200);
         $response->assertJson(fn(AssertableJson $json) => $json->hasAll('data', 'links', 'meta', 'message')->where('meta.total' ,$count));
     }
@@ -113,9 +134,16 @@ class ReservationTest extends TestCase
     {
         $this->prepareData();
         $user = User::factory()->create();
-        $pricePerNight =  Room::first()->price_per_night;
-        $count = Room::query()->where('price_per_night',$pricePerNight)->count();
-        $response = $this->actingAs($user)->getJson(route('reservations.index',['search'=>$pricePerNight]));
+        $querySearchParam =  Room::first()->price_per_night;
+        $count = Room::query()
+                     ->where(function ($q) use ($querySearchParam) {
+                         $q->whereRelation('hotel.city.country','iso_code','like',"%$querySearchParam%")
+                           ->orwhereRelation('hotel','name','like',"%$querySearchParam%")
+                           ->orwhereRelation('hotel.city','name','like',"%$querySearchParam%")
+                           ->orWhere('price_per_night',"$querySearchParam");
+                     })
+                     ->count();
+        $response = $this->actingAs($user)->getJson(route('reservations.index',['search'=>$querySearchParam]));
         $response->assertStatus(200);
         $response->assertJson(fn(AssertableJson $json) => $json->hasAll('data', 'links', 'meta', 'message')->where('meta.total' ,$count));
     }
