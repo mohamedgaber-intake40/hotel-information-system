@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\City\CityStoreRequest;
 use App\Models\Country;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +17,7 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', CityStoreRequest::MAX_NAME_LENGTH)->unique();
             $table->foreignIdFor(Country::class)->constrained();
             $table->timestamps();
         });

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\Facility\FacilityStoreRequest;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,7 @@ class CreateFacilitiesTable extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', FacilityStoreRequest::MAX_NAME_LENGTH)->unique();
             $table->text('description');
             $table->timestamps();
         });

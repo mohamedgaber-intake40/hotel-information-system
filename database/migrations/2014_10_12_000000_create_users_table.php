@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +16,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('email', LoginRequest::MAX_EMAIL_LENGTH)->unique();
+            $table->string('password',LoginRequest::MAX_PASSWORD_LENGTH);
             $table->timestamps();
         });
     }

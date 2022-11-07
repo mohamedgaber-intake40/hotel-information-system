@@ -7,6 +7,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RoomUpdateRequest extends BaseApiRequest
 {
+    const MIN_NUMBER = 1;
+    const MAX_NUMBER = 99999;
+
+    const MIN_PRICE = 1;
+    const MAX_PRICE = 99999;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,8 +31,8 @@ class RoomUpdateRequest extends BaseApiRequest
     public function rules()
     {
         return [
-            'number'          => [ 'required', 'integer', 'unique:rooms,number,'. $this->room, 'min:1', 'max:99999' ],
-            'price_per_night' => [ 'required', 'numeric', 'min:1', 'max:99999' ],
+            'number'          => [ 'required', 'integer', 'unique:rooms,number,'. $this->room,'min:' . self::MIN_NUMBER , 'max:' . self::MAX_NUMBER],
+            'price_per_night' => [ 'required', 'numeric', 'min:' . self::MIN_PRICE, 'max:' . self::MAX_PRICE ],
             'facilities'      => [ 'required', 'array' ],
             'facilities.*'    => [ 'required', 'exists:facilities,id','distinct' ]
         ];

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\Hotel\HotelStoreRequest;
 use App\Models\City;
 use App\Models\Country;
 use Illuminate\Database\Migrations\Migration;
@@ -17,7 +18,7 @@ class CreateHotelsTable extends Migration
     {
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', HotelStoreRequest::MAX_NAME_LENGTH)->unique();
             $table->foreignIdFor(City::class)->constrained();
             $table->timestamps();
         });
