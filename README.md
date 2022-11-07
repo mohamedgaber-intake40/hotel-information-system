@@ -35,7 +35,7 @@ $ ./docker/php-artisan key:generate
 ```
 $ ./docker/php-artisan migrate --seed
 ```
-to run the server
+to run the server (base url : http://localhost:8081)
 ```
 $ docker compose up
 ```
@@ -51,6 +51,7 @@ $ ./docker/php-artisan test
     - password:123456
     
 you can test all the apis by import postman collection file included in the repo.
+no need to add the token to the authorization header postman will do this automatically (it will add the token to a global variable and use it as a header for each request in the collection).
 
 ![Alt text](ERD.png?raw=true "ERD")
 
