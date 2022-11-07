@@ -51,7 +51,7 @@ $ ./docker/php-artisan test
     - password:123456
     
 you can test all the apis by import postman collection file included in the repo.
-no need to add the token to the authorization header postman will do this automatically (it will add the token to a global variable and use it as a header for each request in the collection).
+no need to add the token to the authorization header postman will do this automatically (it will add the token to a collection variable and use it as a header for each request in the collection).
 
 ![Alt text](UPDATED_ERD.png?raw=true "ERD")
 
