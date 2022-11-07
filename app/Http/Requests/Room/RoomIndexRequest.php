@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Room;
 
+use App\Http\Requests\BaseIndexApiRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class HotelIndexRequest extends BaseIndexApiRequest
+class RoomIndexRequest extends BaseIndexApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.

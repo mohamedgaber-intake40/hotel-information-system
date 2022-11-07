@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Room\RoomIndexRequest;
+use App\Http\Requests\Room\RoomStoreRequest;
 use App\Http\Requests\Room\RoomUpdateRequest;
-use App\Http\Requests\RoomIndexRequest;
-use App\Http\Requests\RoomStoreRequest;
 use App\Http\Resources\RoomResource;
 use App\Models\Hotel;
 use App\Models\Room;

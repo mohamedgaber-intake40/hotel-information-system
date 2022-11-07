@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Requests\City;
+namespace App\Http\Requests\Hotel;
 
 use App\Http\Requests\BaseApiRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CityStoreRequest extends BaseApiRequest
+class HotelStoreRequest extends BaseApiRequest
 {
+    const MIN_NAME_LENGTH = 3;
+    const MAX_NAME_LENGTH = 50;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,8 +28,8 @@ class CityStoreRequest extends BaseApiRequest
     public function rules()
     {
         return [
-            'name'       => [ 'required', 'unique:cities' ],
-            'country_id' => [ 'required', 'exists:countries,id' ]
+            'name'    => [ 'required', 'string', 'unique:hotels', 'min:' . self::MIN_NAME_LENGTH, 'max:' . self::MAX_NAME_LENGTH ],
+            'city_id' => [ 'required', 'exists:cities,id' ]
         ];
     }
 }

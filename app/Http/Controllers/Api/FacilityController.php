@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Facility\FacilityIndexRequest;
 use App\Http\Requests\Facility\FacilityStoreRequest;
 use App\Http\Requests\Facility\FacilityUpdateRequest;
-use App\Http\Requests\FacilityIndexRequest;
 use App\Http\Resources\FacilityResource;
 use App\Models\Facility;
 use App\Services\Facility\DeleteFacilityService;

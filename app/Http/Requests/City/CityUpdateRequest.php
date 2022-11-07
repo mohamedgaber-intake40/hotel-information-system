@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\City;
 
+use App\Http\Requests\BaseApiRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CityUpdateRequest extends FormRequest
+class CityUpdateRequest extends BaseApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.

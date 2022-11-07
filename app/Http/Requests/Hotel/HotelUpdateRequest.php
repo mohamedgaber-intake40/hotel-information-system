@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Hotel;
 
+use App\Http\Requests\BaseApiRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class HotelUpdateRequest extends FormRequest
+class HotelUpdateRequest extends BaseApiRequest
 {
     const MIN_NAME_LENGTH = 3;
     const MAX_NAME_LENGTH = 50;

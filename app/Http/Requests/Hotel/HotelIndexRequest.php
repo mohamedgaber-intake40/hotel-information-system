@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Hotel;
 
+use App\Http\Requests\BaseIndexApiRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
-class HotelStoreRequest extends BaseApiRequest
+class HotelIndexRequest extends BaseIndexApiRequest
 {
-    const MIN_NAME_LENGTH = 3;
-    const MAX_NAME_LENGTH = 50;
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,9 +24,6 @@ class HotelStoreRequest extends BaseApiRequest
      */
     public function rules()
     {
-        return [
-            'name'    => [ 'required', 'string', 'unique:hotels', 'min:' . self::MIN_NAME_LENGTH, 'max:' . self::MAX_NAME_LENGTH ],
-            'city_id' => [ 'required', 'exists:cities,id' ]
-        ];
+        return parent::rules();
     }
 }

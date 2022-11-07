@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Facility;
 
+use App\Http\Requests\BaseIndexApiRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FacilityIndexRequest extends BaseIndexApiRequest

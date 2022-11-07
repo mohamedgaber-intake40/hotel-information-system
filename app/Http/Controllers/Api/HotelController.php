@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Hotel\HotelIndexRequest;
+use App\Http\Requests\Hotel\HotelStoreRequest;
 use App\Http\Requests\Hotel\HotelUpdateRequest;
-use App\Http\Requests\HotelIndexRequest;
-use App\Http\Requests\HotelStoreRequest;
 use App\Http\Resources\HotelResource;
 use App\Models\Hotel;
 use App\Services\Hotel\DeleteHotelService;
