@@ -28,7 +28,7 @@ Route::prefix('auth')->group(function () {
  */
 Route::group([ 'middleware' => [ 'auth:sanctum' ] ], function () {
     Route::apiResource('cities', CityController::class);
-    Route::get('countries', CountryController::class)->name('countries.index');
+    Route::apiResource('countries', CountryController::class);
     Route::get('facilities', FacilityController::class)->name('facilities.index');
     Route::apiResource('hotels', HotelController::class)->only('index','store');
     Route::apiResource('hotels.rooms', RoomController::class)->only('index','store','show')->where(['hotel'=>'[0-9]*']);

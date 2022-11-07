@@ -59,10 +59,8 @@ class CityController extends Controller
 
     public function destroy(City $city,DeleteCityService $deleteCityService)
     {
+        $deleteCityService->execute($city);
         return apiResponse()->success()
-                            ->data(CityResource::make(
-                                $deleteCityService->execute($city))
-                            )
                             ->message(__('city.success.deleted'))
                             ->send();
     }

@@ -10,6 +10,6 @@ class FetchSingleCityService
 {
     public function execute(City $city)
     {
-        return $city->load('country');
+        return $city->load('country','hotels');
     }
 }
