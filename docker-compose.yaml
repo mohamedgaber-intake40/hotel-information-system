@@ -8,9 +8,6 @@ services:
       - "3307:3306"
     env_file:
       - ./docker/env/mysql.env
-    command: --init-file /data/application/init.sql
-    volumes:
-      - ./docker/mysql/init.sql:/data/application/init.sql
 
   phpapache:
     container_name: ynmo-task

@@ -1,3 +1,0 @@
-CREATE DATABASE IF NOT EXISTS "test";
-GRANT ALL PRIVILEGES on *.* to 'homestead'@'%' identified by MYSQL_PASSWORD;
-FLUSH PRIVILEGES
