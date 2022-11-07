@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('email', LoginRequest::MAX_EMAIL_LENGTH)->unique();
-            $table->string('password',LoginRequest::MAX_PASSWORD_LENGTH);
+            $table->string('password');
             $table->timestamps();
         });
     }
