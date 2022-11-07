@@ -59,6 +59,7 @@ class CityController extends Controller
 
     public function destroy(City $city,DeleteCityService $deleteCityService)
     {
+        $this->authorize('delete',$city);
         $deleteCityService->execute($city);
         return apiResponse()->success()
                             ->message(__('city.success.deleted'))

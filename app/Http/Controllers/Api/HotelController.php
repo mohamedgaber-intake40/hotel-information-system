@@ -64,6 +64,7 @@ class HotelController extends Controller
 
     public function destroy(Hotel $hotel,DeleteHotelService $deleteHotelService)
     {
+        $this->authorize('delete',$hotel);
         $deleteHotelService->execute($hotel);
         return apiResponse()->success()
                             ->message(__('hotels.success.deleted'))

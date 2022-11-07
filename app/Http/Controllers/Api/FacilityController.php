@@ -56,6 +56,7 @@ class FacilityController extends Controller
 
     public function destroy(Facility $facility,DeleteFacilityService $deleteFacilityService)
     {
+        $this->authorize('delete',$facility);
         $deleteFacilityService->execute($facility);
         return apiResponse()->success()
                             ->message(__('facility.success.deleted'))

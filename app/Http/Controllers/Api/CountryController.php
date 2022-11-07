@@ -58,6 +58,7 @@ class CountryController extends Controller
 
     public function destroy(Country $country, DeleteCountryService $deleteCountryService)
     {
+        $this->authorize('delete',$country);
         $deleteCountryService->execute($country);
         return apiResponse()->success()
                             ->message(__('country.success.deleted'))

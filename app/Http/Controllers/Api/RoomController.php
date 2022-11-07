@@ -63,7 +63,9 @@ class RoomController extends Controller
 
     public function destroy(Hotel $hotel, $room, DeleteRoomService $deleteRoomService)
     {
-        $deleteRoomService->execute($hotel, $room);
+        $room = $hotel->rooms()->findOrFail($room);
+        $this->authorize('delete',$room);
+        $deleteRoomService->execute($room);
         return apiResponse()->success()
                             ->message(__('rooms.success.deleted'))
                             ->send();
