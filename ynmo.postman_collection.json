@@ -16,8 +16,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.environment.set(\"auth_token\",pm.response.json().data.auth_token.token)",
-									"pm.environment.set(\"user_id\",pm.response.json().data.id)"
+									"pm.collectionVariables.set(\"auth_token\",pm.response.json().data.auth_token.token)",
+									"pm.collectionVariables.set(\"user_id\",pm.response.json().data.id)"
 								],
 								"type": "text/javascript"
 							}
@@ -59,7 +59,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "qGuUVlV95QPy1y3U2B5jEIUrmp0skANYJ00sTedl",
+									"value": "p21fq1wdaiaQQjdaZHiiG1nu1fI9zKS42HDcgrhB",
 									"type": "string"
 								}
 							]
@@ -180,6 +180,31 @@
 							"path": [
 								"cities",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/cities/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities",
+								"2"
 							]
 						}
 					},
@@ -325,13 +350,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/countries/7",
+							"raw": "{{base_url}}/countries/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"countries",
-								"7"
+								"1"
 							]
 						}
 					},
@@ -442,13 +467,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/facilities/1",
+							"raw": "{{base_url}}/facilities/21",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"facilities",
-								"1"
+								"21"
 							]
 						}
 					},
@@ -509,13 +534,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/hotels/126",
+							"raw": "{{base_url}}/hotels/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"hotels",
-								"126"
+								"1"
 							]
 						}
 					},
@@ -670,7 +695,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/hotels/:hotel/rooms/1",
+							"raw": "{{base_url}}/hotels/:hotel/rooms/14",
 							"host": [
 								"{{base_url}}"
 							],
@@ -678,12 +703,12 @@
 								"hotels",
 								":hotel",
 								"rooms",
-								"1"
+								"14"
 							],
 							"variable": [
 								{
 									"key": "hotel",
-									"value": "1"
+									"value": "4"
 								}
 							]
 						}
@@ -696,7 +721,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/hotels/:hotel/rooms/1",
+							"raw": "{{base_url}}/hotels/:hotel/rooms/14",
 							"host": [
 								"{{base_url}}"
 							],
@@ -704,12 +729,12 @@
 								"hotels",
 								":hotel",
 								"rooms",
-								"1"
+								"14"
 							],
 							"variable": [
 								{
 									"key": "hotel",
-									"value": "1"
+									"value": "4"
 								}
 							]
 						}
@@ -779,7 +804,7 @@
 				"exec": [
 					"pm.request.addHeader(\"Accept: Application/json\")",
 					"",
-					"pm.request.addHeader(\"Authorization: Bearer \" + pm.environment.get('auth_token'))",
+					"pm.request.addHeader(\"Authorization: Bearer \" + pm.collectionVariables.get('auth_token'))",
 					"",
 					""
 				]
@@ -793,6 +818,21 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8081/api",
+			"type": "string"
+		},
+		{
+			"key": "auth_token",
+			"value": ""
+		},
+		{
+			"key": "user_id",
+			"value": ""
 		}
 	]
 }
