@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Hotel\HotelUpdateRequest;
 use App\Http\Requests\HotelIndexRequest;
 use App\Http\Requests\HotelStoreRequest;
 use App\Http\Resources\HotelResource;
+use App\Models\Hotel;
+use App\Services\Hotel\DeleteHotelService;
 use App\Services\Hotel\FetchHotelListService;
+use App\Services\Hotel\FetchSingleHotelService;
 use App\Services\Hotel\StoreHotelService;
+use App\Services\Hotel\UpdateHotelService;
 use Symfony\Component\HttpFoundation\Response;
 
 class HotelController extends Controller
@@ -23,6 +28,17 @@ class HotelController extends Controller
                             ->send();
     }
 
+    public function show(Hotel $hotel,FetchSingleHotelService $fetchSingleHotelService)
+    {
+        return apiResponse()->success()
+                            ->data(HotelResource::make(
+                                $fetchSingleHotelService->execute(
+                                    $hotel
+                                )
+                            ))
+                            ->send();
+    }
+
 
     public function store(HotelStoreRequest $request, StoreHotelService $storeHotelService)
     {
@@ -32,6 +48,25 @@ class HotelController extends Controller
                             ))
                             ->message(__('hotels.stored.success'))
                             ->statusCode(Response::HTTP_CREATED)
+                            ->send();
+    }
+
+    public function update(Hotel $hotel,HotelUpdateRequest $request,UpdateHotelService $updateHotelService)
+    {
+        return apiResponse()->success()
+                            ->data(HotelResource::make(
+                                $updateHotelService->execute($hotel,$request->validated())
+                            ))
+                            ->message(__('hotels.updated.success'))
+                            ->statusCode(Response::HTTP_CREATED)
+                            ->send();
+    }
+
+    public function destroy(Hotel $hotel,DeleteHotelService $deleteHotelService)
+    {
+        $deleteHotelService->execute($hotel);
+        return apiResponse()->success()
+                            ->message(__('hotels.success.deleted'))
                             ->send();
     }
 }
