@@ -53,6 +53,10 @@ $ ./docker/php-artisan test
 you can test all the apis by import postman collection file included in the repo.
 no need to add the token to the authorization header postman will do this automatically (it will add the token to a collection variable and use it as a header for each request in the collection).
 
+- there is shell scripts helpers to run composer and php artisan command in the docker cotainer
+    - for composer use ./docker/composer 
+    - for artisan use ./docker/php-artisan
+     
 ![Alt text](UPDATED_ERD.png?raw=true "ERD")
 
 
