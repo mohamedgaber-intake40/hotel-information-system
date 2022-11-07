@@ -106,7 +106,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/cities?country=2&per_page=1",
+							"raw": "{{base_url}}/cities?country=1&per_page=15",
 							"host": [
 								"{{base_url}}"
 							],
@@ -116,12 +116,104 @@
 							"query": [
 								{
 									"key": "country",
-									"value": "2"
+									"value": "1"
 								},
 								{
 									"key": "per_page",
-									"value": "1"
+									"value": "15"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"test\",\n    \"country_id\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cities",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/cities/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"test2\",\n    \"country_id\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/cities/26",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cities",
+								"26"
 							]
 						}
 					},
@@ -155,6 +247,95 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/countries/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"test\",\n    \"iso_code\" : \"TYT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/countries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"tes2t\",\n    \"iso_code\" : \"TYT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/countries/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"countries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/countries/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"countries",
+								"7"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -164,20 +345,10 @@
 				{
 					"name": "index",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "mcsFzhd7pbe5VstB8eXxaPiBDiwdLbfH0Dsp7hUZ",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/facilities",
+							"raw": "{{base_url}}/facilities?per_page=10",
 							"host": [
 								"{{base_url}}"
 							],
@@ -187,9 +358,97 @@
 							"query": [
 								{
 									"key": "per_page",
-									"value": "1",
-									"disabled": true
+									"value": "10"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/facilities/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"facilities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/facilities/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"facilities",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"asdasd\",\n    \"description\"  :\"xzczxc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/facilities",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"facilities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"asdasdasd\",\n    \"description\"  :\"xzczxc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/facilities/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"facilities",
+								"1"
 							]
 						}
 					},
@@ -207,7 +466,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\" :\"qweqwe\",\n    \"city_id\" : 2\n}",
+							"raw": "{\n    \"name\" :\"qweqwze\",\n    \"city_id\" : 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -221,6 +480,69 @@
 							],
 							"path": [
 								"hotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hotels/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hotels/126",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels",
+								"126"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" :\"qweqwe\",\n    \"city_id\" : 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/hotels/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels",
+								"1"
 							]
 						}
 					},
@@ -283,6 +605,41 @@
 					"response": []
 				},
 				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"number\" :19144,\n    \"price_per_night\" :6,\n    \"facilities\" :[1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/hotels/:hotel/rooms/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels",
+								":hotel",
+								"rooms",
+								"2"
+							],
+							"variable": [
+								{
+									"key": "hotel",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "index",
 					"request": {
 						"method": "GET",
@@ -296,6 +653,58 @@
 								"hotels",
 								":hotel",
 								"rooms"
+							],
+							"variable": [
+								{
+									"key": "hotel",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hotels/:hotel/rooms/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels",
+								":hotel",
+								"rooms",
+								"1"
+							],
+							"variable": [
+								{
+									"key": "hotel",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/hotels/:hotel/rooms/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"hotels",
+								":hotel",
+								"rooms",
+								"1"
 							],
 							"variable": [
 								{
