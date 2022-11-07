@@ -3,4 +3,4 @@
 args="$@"
 command="composer $args"
 echo "$command"
-docker compose run phpapache $command\
+docker-compose run phpapache $command\
