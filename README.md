@@ -59,7 +59,7 @@ Assumptions:
 - all the apis need to be authenticated by client token so there will be login api to get this token and refresh token api to refresh this token when expired
 - room facilities may belongs to many rooms like (single bed , air condition, microwave, TV etc...) so there is a relation Many to Many between rooms and facilities
 - price per night may change from room to another in the same hotel , so price per night is a room data not the hotel
-- no need to add direct relation between the hotel and its country , because the city is belongs to only one country , so the relation is the hotel belong to the country through the city
+- no need to add direct relation between the hotel and its country , because the city is belongs to only one country , so the relation is the hotel belongs to the country through the city
 
 
 real data example
