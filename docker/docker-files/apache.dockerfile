@@ -10,9 +10,6 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zip
 
-RUN pecl install -o -f redis \
-&&  rm -rf /tmp/pear \
-&&  docker-php-ext-enable redis
 ARG uid
 ARG user
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
