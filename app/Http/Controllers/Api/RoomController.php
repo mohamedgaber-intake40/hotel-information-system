@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Room\RoomUpdateRequest;
 use App\Http\Requests\RoomIndexRequest;
 use App\Http\Requests\RoomStoreRequest;
 use App\Http\Resources\RoomResource;
 use App\Models\Hotel;
 use App\Models\Room;
+use App\Services\Room\DeleteRoomService;
 use App\Services\Room\FetchRoomListService;
 use App\Services\Room\FetchSingleRoomService;
 use App\Services\Room\StoreRoomService;
+use App\Services\Room\UpdateRoomService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -32,19 +35,37 @@ class RoomController extends Controller
     {
         return apiResponse()->success()
                             ->data(RoomResource::make(
-                                $storeRoomService->execute($hotel,$request->validated())
+                                $storeRoomService->execute($hotel, $request->validated())
                             ))
                             ->message(__('rooms.stored.success'))
                             ->statusCode(Response::HTTP_CREATED)
                             ->send();
     }
 
-    public function show(Hotel $hotel,$room,FetchSingleRoomService $fetchSingleRoomService)
+    public function show(Hotel $hotel, $room, FetchSingleRoomService $fetchSingleRoomService)
     {
         return apiResponse()->success()
                             ->data(RoomResource::make(
-                                $fetchSingleRoomService->execute($hotel,$room)
+                                $fetchSingleRoomService->execute($hotel, $room)
                             ))
+                            ->send();
+    }
+
+    public function update(Hotel $hotel, $room, RoomUpdateRequest $request, UpdateRoomService $updateRoomService)
+    {
+        return apiResponse()->success()
+                            ->data(RoomResource::make(
+                                $updateRoomService->execute($hotel, $room, $request->validated())
+                            ))
+                            ->message(__('rooms.success.updated'))
+                            ->send();
+    }
+
+    public function destroy(Hotel $hotel, $room, DeleteRoomService $deleteRoomService)
+    {
+        $deleteRoomService->execute($hotel, $room);
+        return apiResponse()->success()
+                            ->message(__('rooms.success.deleted'))
                             ->send();
     }
 }
